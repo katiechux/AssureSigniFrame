@@ -50,7 +50,7 @@ export class SampleIframe extends LitElement {
     static properties = {
         name: 'Hello',
         title: 'Hello',
-        src: 'https://www.wikipedia.org/',
+        src: 'https://www.nintex.com/',
         height: '100%'
     }
 
