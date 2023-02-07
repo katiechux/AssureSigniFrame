@@ -145,4 +145,4 @@ export class AssureSignIframe extends LitElement {
 
 // registering the web component.
 const elementName = 'sample-iframe';
-customElements.define(elementName, SampleIframe);
+customElements.define(elementName, AssureSignIframe);
