@@ -1,6 +1,6 @@
-import {css, html, LitElement, styleMap} from 'lit';
+import {css, html, LitElement, styleMap} from 'https://cdn.jsdelivr.net/gh/lit/dist@2/all/lit-all.min.js';
 
-export class AssureSignIframe extends LitElement {
+export class SampleIframe extends LitElement {
     // Define scoped styles right with your component, in plain CSS
     static styles = css`
       :host {
@@ -18,64 +18,12 @@ export class AssureSignIframe extends LitElement {
       }
     `;
 
-    static data = {
-        "request": {
-            "placeholders": [],
-            "templates": [
-            {
-                "templateID": this.templateId,
-                "values": [
-                {
-                    "name": "Envelope Name 2 ",
-                    "value": "My New Envelope"
-                },
-                {
-                    "name": "Envelope Order number 2",
-                    "value": "Account_Order_123"
-                },
-                {
-                    "name": "Expiration Date 2",
-                    "value": "06/17/2019"
-                },
-                {
-                    "name": "Language",
-                    "value": "en-US"
-                },
-                {
-                    "name": "Signer 1 Name",
-                    "value": this.signerName
-                },
-                {
-                    "name": "Signer 1 Email",
-                    "value": this.signerEmail
-                },
-                {
-                    "name": "Signer 1 Mobile Phone",
-                    "value": this.signerPhone
-                }
-                ]
-            }
-            ]
-        }
-    };
-
-    constructor() {
-        super();
-        this.src = '';
-        this.signerName = '';
-        this.signerEmail = '';
-        this.signerPhone = '';
-        this.templateId = '';
-        this.apiUsername = '';
-        this.apiPassword = '';
-      }
-
     static getMetaConfig() {
         // plugin contract information
         return {
-            controlName: 'AssureSign',
+            controlName: 'IFrame-new',
             fallbackDisableSubmit: false,
-            description: 'AssureSign signing experience.',
+            description: 'IFrame component which can render url view with the frame',
             iconUrl: "one-line-text",
             groupName: 'Visual',
             version: '1.3',
@@ -89,34 +37,6 @@ export class AssureSignIframe extends LitElement {
                     type: 'string',
                     title: 'Height',
                     description: 'Height of the component',
-                },
-                signerName: {
-                    type: 'string',
-                    title: 'Signer Name',
-                    description: 'Full name of the Signer'
-                },
-                signerEmail: {
-                    type: 'string',
-                    title: 'Signer Email',
-                    description: 'Email of the Signer'
-                },
-                signerPhone: {
-                    type: 'string',
-                    title: 'Signer Phone Number',
-                    description: 'Phone number of the Signer'
-                },
-                templateId : {
-                    type: 'string',
-                    title: 'Template Id',
-                    description: 'AssureSign Template Id'
-                },
-                apiUsername: {
-                    type: 'string',
-                    title: 'API Username'
-                },
-                apiPassword: {
-                    type: 'string',
-                    title: 'API Password'
                 }
             },
             standardProperties: {
@@ -125,7 +45,14 @@ export class AssureSignIframe extends LitElement {
                 description: true,
             }
         };
-    }    
+    }
+
+    static properties = {
+        name: 'Hello',
+        title: 'Hello',
+        src: 'https://www.wikipedia.org/',
+        height: '100%'
+    }
 
     // Render the UI as a function of component state
     render() {
@@ -133,16 +60,16 @@ export class AssureSignIframe extends LitElement {
 
         return html`
             <iframe
-                class="frame"
-                style=${styleMap(styles)}
-                name=${this.name}
-                allow="geolocation *; microphone; camera"
-                title=${this.title}
-                src=${this.src}
+                    class="frame"
+                    style=${styleMap(styles)}
+                    name=${this.name}
+                    allow="geolocation *; microphone; camera"
+                    title=${this.title}
+                    src=${this.src}
             ></iframe>`;
     }
 }
 
 // registering the web component.
 const elementName = 'sample-iframe';
-customElements.define(elementName, AssureSignIframe);
+customElements.define(elementName, SampleIframe);
