@@ -168,5 +168,5 @@ export class SampleIframe extends LitElement {
 }
 
 // registering the web component.
-const elementName = 'sample-iframe';
+const elementName = 'testing-testing';
 customElements.define(elementName, SampleIframe);
