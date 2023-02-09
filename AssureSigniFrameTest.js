@@ -86,7 +86,7 @@ export class SampleIframe extends LitElement {
     async load() {
         const apiUserBody = {
             "request": {
-              "apiUsername": this.apiUsername,
+              "apiUsername": this.assureSignApiUsername,
               "key": this.assureSignApiKey,
               "contextUsername": this.assureSignApiUserEmail,
               "sessionLengthInMinutes": 10
