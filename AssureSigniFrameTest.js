@@ -92,10 +92,9 @@ export class SampleIframe extends LitElement {
               "sessionLengthInMinutes": 10
             }
         };
-        debugger;
         console.log(apiUserBody);
 
-        const token = await fetch('https://account.assuresign.net/api/v3.7/authentication/apiUser', {
+        const token = await fetch('https://qa-account.assuresign.net/api/v3.7/authentication/apiUser', {
             method: 'POST',
             body: JSON.stringify(apiUserBody)
         });
@@ -139,8 +138,8 @@ export class SampleIframe extends LitElement {
         // {
         //     method: 'POST',
         //     headers: {
-        //         'Authorization': 'Bearer' + token.
-        //         // 'Content-Type': 'application/x-www-form-urlencoded',
+        //         'Authorization': 'Bearer ' + token.result.authToken,
+        //         'Content-Type': 'application/json',
         //     },
         //     body: JSON.stringify(submitBody)
         // });
