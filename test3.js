@@ -92,7 +92,6 @@ export class SampleIframe extends LitElement {
               "sessionLengthInMinutes": 60
             }
         };
-        console.log(apiUserBody);
 
         const token = await fetch('https://qa-account.assuresign.net/api/v3.7/authentication/apiUser', {
             method: 'POST',
@@ -102,7 +101,7 @@ export class SampleIframe extends LitElement {
             body: JSON.stringify(apiUserBody)
         });
 
-        console.log(token);
+        debugger;
 
         // const submitBody = {
         //     "request": {
