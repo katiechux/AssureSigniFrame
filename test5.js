@@ -33,6 +33,10 @@ export class SampleIframe extends LitElement {
                     title: 'Height',
                     description: 'Height of the component',
                 },
+                envelopeName: {
+                    type: 'string',
+                    title: 'Envelope Name'
+                },
                 signerEmail: {
                     type: 'string',
                     title: 'Signer Email'
@@ -93,59 +97,62 @@ export class SampleIframe extends LitElement {
             }
         };
 
-        const token = await fetch('https://qa-account.assuresign.net/api/v3.7/authentication/apiUser', {
+        const response = await fetch('https://qa-account.assuresign.net/api/v3.7/authentication/apiUser', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'
             },
             body: JSON.stringify(apiUserBody)
         });
-        const body = await token.json();
-        debugger;
-
-        // const submitBody = {
-        //     "request": {
-        //         "placeholders": [],
-        //         "templates": [
-        //             {
-        //                 "templateID": this.assureSignTemplateId,
-        //                 "values": [
-        //                     {
-        //                         "name": "Envelope Name 2 ",
-        //                         "value": "My New Envelope"
-        //                     },
-        //                     {
-        //                         "name": "Language",
-        //                         "value": "en-US"
-        //                     },
-        //                     {
-        //                         "name": "Signer 1 Name",
-        //                         "value": this.signerName
-        //                         },
-        //                     {
-        //                         "name": "Signer 1 Email",
-        //                         "value": this.signerEmail
-        //                     },
-        //                     {
-        //                         "name": "Signer 1 Phone",
-        //                         "value": this.signerPhone
-        //                     }
-        //                 ]
-        //             }
-        //         ]
-        //     }
-        // }
         
-        // const submit = await fetch('https://www.assuresign.net/api/documentnow/v3.7/submit',
-        // {
-        //     method: 'POST',
-        //     headers: {
-        //         'Authorization': 'Bearer ' + token.result.authToken,
-        //         'Content-Type': 'application/json',
-        //     },
-        //     body: JSON.stringify(submitBody)
-        // });
+        const jsonResponse = await token.json();
 
+        const token = jsonResponse.result.token;
+
+        const submitBody = {
+            "request": {
+                "placeholders": [],
+                "templates": [
+                    {
+                        "templateID": this.assureSignTemplateId,
+                        "values": [
+                            {
+                                "name": "Envelope Name 2 ",
+                                "value": this.envelopeName
+                            },
+                            {
+                                "name": "Language",
+                                "value": "en-US"
+                            },
+                            {
+                                "name": "Signer 1 Name",
+                                "value": this.signerName
+                                },
+                            {
+                                "name": "Signer 1 Email",
+                                "value": this.signerEmail
+                            },
+                            {
+                                "name": "Signer 1 Phone",
+                                "value": this.signerPhone
+                            }
+                        ]
+                    }
+                ]
+            }
+        }
+        
+        const submit = await fetch('https://dev.assuresign.net/api/documentnow/v3.7/submit',
+        {
+            method: 'POST',
+            headers: {
+                'Authorization': 'Bearer ' + token,
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify(submitBody)
+        });
+
+        debugger;
         // console.log(submit);
 
         // const signingLinks = await fetch('https://www.assuresign.net/api/documentnow/v.37/envelope/'+ submit.value +'/signingLinks',
