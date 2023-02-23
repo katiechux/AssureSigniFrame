@@ -157,9 +157,12 @@ export class SampleIframe extends LitElement {
         
         debugger;
 
-        const signingLinks = await fetch('https://dev.assuresign.net/api/documentnow/v.37/envelope/'+ envelopeId +'/signingLinks',
+        const signingLinks = await fetch('https://dev.assuresign.net/api/documentnow/v3.7/envelope/'+ envelopeId +'/signingLinks',
             {
-                method: 'GET'
+                method: 'GET',
+                headers: {
+                    'Content-Type': 'application/json'
+                }
             }
         );
 
