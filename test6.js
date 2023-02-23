@@ -75,8 +75,7 @@ export class SampleIframe extends LitElement {
     }
 
     static properties = {
-        name: '',
-        title: '',
+        envelopeName: 'Envelope Name',
         src: 'https://www.nintex.com/',
         height: '100%',
         signerName: '',
@@ -105,7 +104,7 @@ export class SampleIframe extends LitElement {
             body: JSON.stringify(apiUserBody)
         });
         
-        const jsonResponse = await token.json();
+        const jsonResponse = await response.json();
 
         const token = jsonResponse.result.token;
 
