@@ -151,14 +151,21 @@ export class SampleIframe extends LitElement {
             body: JSON.stringify(submitBody)
         });
 
-        debugger;
-        // console.log(submit);
+        const jsonSubmit = await submit.json();
 
-        // const signingLinks = await fetch('https://www.assuresign.net/api/documentnow/v.37/envelope/'+ submit.value +'/signingLinks',
-        //     {
-        //         method: 'GET'
-        //     }
-        // );
+        const envelopeId = jsonSubmit.result.envelopeID;
+        
+        debugger;
+
+        const signingLinks = await fetch('https://www.assuresign.net/api/documentnow/v.37/envelope/'+ envelopeId +'/signingLinks',
+            {
+                method: 'GET'
+            }
+        );
+
+        const jsonSigningLinks = await signingLinks.json();
+
+        this.src = jsonSigningLinks.result.signingLinks[0].url;
     }
 
     // Render the UI as a function of component state
