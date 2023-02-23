@@ -100,7 +100,7 @@ export class SampleIframe extends LitElement {
             },
             body: JSON.stringify(apiUserBody)
         });
-
+        const body = await token.json();
         debugger;
 
         // const submitBody = {
