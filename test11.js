@@ -169,12 +169,16 @@ export class SampleIframe extends LitElement {
 
         const jsonSigningLinks = await signingLinks.json();
 
-        return jsonSigningLinks.result.signingLinks[0].url;
+        this.src = jsonSigningLinks.result.signingLinks[0].url;
+    }
+
+    async connectedCallback() {
+        super.connectedCallback();
+        await this.load();
     }
 
     // Render the UI as a function of component state
     render() {
-        this.src = this.load();
         let styles = {height: this.height};
 
         return html`
