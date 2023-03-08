@@ -29,13 +29,6 @@ export class EmbeddedAssureSign extends LitElement {
         assureSignApiKey: { type: String },
         assureSignTemplateId: { type: String }
     }
-
-    constructor() {
-        this.envelopeName = 'Envelope Name',
-        this.height = '100%',
-        this.src = 'https://www.nintex.com'
-    }
-
     
     static getMetaConfig() {
         // plugin contract information
@@ -175,6 +168,13 @@ export class EmbeddedAssureSign extends LitElement {
         const jsonSigningLinks = await signingLinks.json();
 
         this.src = jsonSigningLinks.result.signingLinks[0].url;
+    }
+    
+    constructor() {
+        super();
+        this.envelopeName = 'Envelope Name',
+        this.height = '100%',
+        this.src = 'https://www.nintex.com'
     }
 
     async connectedCallback() {
