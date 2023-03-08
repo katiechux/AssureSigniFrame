@@ -92,19 +92,7 @@ export class EmbeddedAssureSign extends LitElement {
             }
         };
     }
-
-    static properties = {
-        envelopeName: 'Envelope Name',
-        src: 'https://www.nintex.com/',
-        height: '100%',
-        signerName: '',
-        signerEmail: '',
-        signerPhone: '',
-        assureSignApiUsername: '',
-        assureSignApiKey: '',
-        assureSignTemplateId: ''
-    }
-
+    
     async load() {
         const apiUserBody = {
             "request": {
