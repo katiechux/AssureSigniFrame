@@ -18,6 +18,25 @@ export class EmbeddedAssureSign extends LitElement {
       }
     `;
     
+    static properties = {
+        envelopeName: { type: String },
+        src: { type: String },
+        height: { type: String },
+        signerName: { type: String },
+        signerEmail: { type: String },
+        signerPhone: { type: String },
+        assureSignApiUsername: { type: String },
+        assureSignApiKey: { type: String },
+        assureSignTemplateId: { type: String }
+    }
+
+    constructor() {
+        this.envelopeName = 'Envelope Name',
+        this.height = '100%',
+        this.src = 'https://www.nintex.com'
+    }
+
+    
     static getMetaConfig() {
         // plugin contract information
         return {
