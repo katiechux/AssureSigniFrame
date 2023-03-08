@@ -17,25 +17,7 @@ export class EmbeddedAssureSign extends LitElement {
         border: none;
       }
     `;
-      
-    static properties = {
-        envelopeName: { type: string },
-        src: { type: string },
-        height: { type: string },
-        signerName: { type: string },
-        signerEmail: { type: string },
-        signerPhone: { type: string },
-        assureSignApiUsername: { type: string },
-        assureSignApiKey: { type: string },
-        assureSignTemplateId: { type: string }
-    }
-
-    constructor() {
-        this.envelopeName = 'Envelope Name',
-        this.height = '100%',
-        this.src = 'https://www.nintex.com'
-    }
-
+    
     static getMetaConfig() {
         // plugin contract information
         return {
@@ -91,6 +73,25 @@ export class EmbeddedAssureSign extends LitElement {
             }
         };
     }
+
+    static properties = {
+        envelopeName: { type: string },
+        src: { type: string },
+        height: { type: string },
+        signerName: { type: string },
+        signerEmail: { type: string },
+        signerPhone: { type: string },
+        assureSignApiUsername: { type: string },
+        assureSignApiKey: { type: string },
+        assureSignTemplateId: { type: string }
+    }
+
+    constructor() {
+        this.envelopeName = 'Envelope Name',
+        this.height = '100%',
+        this.src = 'https://www.nintex.com'
+    }
+
 
     async load() {
         const apiUserBody = {

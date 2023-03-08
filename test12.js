@@ -1,6 +1,6 @@
 import {css, html, LitElement, styleMap} from 'https://cdn.jsdelivr.net/gh/lit/dist@2/all/lit-all.min.js';
 
-export class EmbeddedAssureSign extends LitElement {
+export class SampleIframe extends LitElement {
     // Define scoped styles right with your component, in plain CSS
     static styles = css`
       :host {
@@ -17,24 +17,6 @@ export class EmbeddedAssureSign extends LitElement {
         border: none;
       }
     `;
-      
-    static properties = {
-        envelopeName: { type: string },
-        src: { type: string },
-        height: { type: string },
-        signerName: { type: string },
-        signerEmail: { type: string },
-        signerPhone: { type: string },
-        assureSignApiUsername: { type: string },
-        assureSignApiKey: { type: string },
-        assureSignTemplateId: { type: string }
-    }
-
-    constructor() {
-        this.envelopeName = 'Envelope Name',
-        this.height = '100%',
-        this.src = 'https://www.nintex.com'
-    }
 
     static getMetaConfig() {
         // plugin contract information
@@ -90,6 +72,18 @@ export class EmbeddedAssureSign extends LitElement {
                 description: true,
             }
         };
+    }
+
+    static properties = {
+        envelopeName: 'Envelope Name',
+        src: 'https://www.nintex.com/',
+        height: '100%',
+        signerName: '',
+        signerEmail: '',
+        signerPhone: '',
+        assureSignApiUsername: '',
+        assureSignApiKey: '',
+        assureSignTemplateId: ''
     }
 
     async load() {
@@ -196,5 +190,5 @@ export class EmbeddedAssureSign extends LitElement {
 }
 
 // registering the web component.
-const elementName = 'embedded-assuresign';
-customElements.define(elementName, EmbeddedAssureSign);
+const elementName = 'testing-testing';
+customElements.define(elementName, SampleIframe);
