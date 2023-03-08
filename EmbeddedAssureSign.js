@@ -39,7 +39,7 @@ export class EmbeddedAssureSign extends LitElement {
     static getMetaConfig() {
         // plugin contract information
         return {
-            controlName: 'AssureSign-iFrame',
+            controlName: 'Embedded-AssureSign',
             fallbackDisableSubmit: false,
             description: 'IFrame component which can render AssureSign envelope',
             iconUrl: "pen",
