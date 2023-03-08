@@ -173,8 +173,8 @@ export class EmbeddedAssureSign extends LitElement {
     constructor() {
         super();
         this.envelopeName = 'Envelope Name',
-        this.height = '100%',
-        this.src = 'https://www.nintex.com'
+        this.height = '900px',
+        this.src = ''
     }
 
     async connectedCallback() {
