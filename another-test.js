@@ -191,7 +191,7 @@ export class EmbeddedAssureSign extends LitElement {
 
     // Render the UI as a function of component state
     render() {
-        return html`${until(this.content, html`<i class="fa-solid fa-spinner fa-spin"></i>`)}`
+        return html`${until(this.content, html`<span>Loading...</span>`)}`
     }
 }
 
