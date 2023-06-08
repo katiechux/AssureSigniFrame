@@ -34,7 +34,7 @@ export class EmbeddedAssureSign extends LitElement {
     static getMetaConfig() {
         // plugin contract information
         return {
-            controlName: 'Embedded-AssureSign',
+            controlName: 'Another-Name',
             fallbackDisableSubmit: false,
             description: 'IFrame component which can render AssureSign envelope',
             iconUrl: "pen",
@@ -169,7 +169,7 @@ export class EmbeddedAssureSign extends LitElement {
         const jsonSigningLinks = await signingLinks.json();
         
         let styles = {height: this.height};
-        this.content = html`
+        return html`
             <iframe
             class="frame"
             style=${styleMap(styles)}
@@ -186,7 +186,7 @@ export class EmbeddedAssureSign extends LitElement {
 
     async connectedCallback() {
         super.connectedCallback();
-        await this.load();
+        this.content = this.load();
     }
 
     // Render the UI as a function of component state
@@ -196,5 +196,5 @@ export class EmbeddedAssureSign extends LitElement {
 }
 
 // registering the web component.
-const elementName = 'embedded-assuresign';
+const elementName = 'another-name';
 customElements.define(elementName, EmbeddedAssureSign);
